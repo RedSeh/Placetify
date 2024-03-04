@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+    <style>
+        /* Style for map container */
+        #map {
+            height: 400px; /* تعيين ارتفاع الخريطة */
+            width: 100%; /* جعل الخريطة تمتد على عرض الصفحة */
+        }
+    </style>
+</head>
+<body>
+    <!-- تضمين العنصر الذي سيحتوي على الخريطة -->
+    <div id="map"></div>
+
+    <script>
+        // دالة تقوم بتهيئة الخريطة عند تحميل الصفحة
+        function initMap() {
+            // إنشاء متغير يحتوي على إحداثيات الموقع المركزي للخريطة
+            var myLatLng = {lat: -34.397, lng: 150.644};
+
+            // إنشاء خريطة Google وتحديد الموقع المركزي ومستوى التكبير
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: myLatLng
+            });
+
+            // إضافة علامة على الموقع المركزي للخريطة
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+    </script>
+
+    <!-- تضمين مكتبة API لخرائط Google -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+</body>
+</html>
